@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>dmb</Name>
+  <Repository>iampuid0/dmb</Repository>  
+  <Network>bridge</Network>    
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/iampuid0/dmb/</Support>
+  <Project>https://hub.docker.com/r/iampuid0/dmb/</Project>
+  <Overview>This is an unRAID Docker template for:&#xD;
+&#xD;
+"An All-In-One image for the unified deployment of Riven, Zurg, and rclone"&#xD;
+https://hub.docker.com/r/iampuid0/dmb/&#xD;
+&#xD;
+"What are Riven and Zurg? What is all of this stuff?"&#xD;
+&#xD;
+Riven is a new, still in development, open source, free, media solution that combines a bunch of ideas into one complete, polished package.&#xD;
+&#xD;
+More specifically, in the same vein as plex_debrid before (github repo: itstoggled/plex_debrid - now archived), it allows for end users to input their own (paid) real-debrid API token (real-debrid.com for info) (other "debrids" not supported at the moment) and then access "cached torrents" on the real-debrid servers. Cached torrents allow the user to stream the video file being sought, whether movie or tv show.&#xD;
+&#xD;
+Zurg is a specialized rclone mount and filtering program. Basically, it takes a raw rclone mount of all torrents a user has in their debrid library, and it filters them resulting in a huge variety of variables such as file size, bitrate, resolution, etc. (huge list).&#xD;
+&#xD;
+This project also leverages the power of rclone to mount the debrid webdav directory into your OS, unRAID in this case, inside of a docker container. When you provide this mount path to your Plex server Plex won't distingtush between local media that you might have and this mounted media. It will stream the media directly from the real-debrid (or other servers if added later by devs) servers to your Plex server where it will be played lag-free assuming your network/server/player can handle it.&#xD;
+&#xD;
+PostgreSQL database is also used to store settings and relevant information.&#xD;
+&#xD;
+"So, why this image and not the image from the developers of Riven or Zurg?"&#xD;
+&#xD;
+You could certainly use those if you wish to setup all the invidivdual components. This AIO image just seeks to simplify and streamline the process.&#xD;
+&#xD;
+links for a ton more information if desired or required:&#xD;
+&#xD;
+DMB AIO wiki: https://github.com/I-am-PUID-0/DMB/wiki&#xD;
+https://github.com/rivenmedia/riven&#xD;
+https://github.com/debridmediamanager/zurg-testing&#xD;
+https://rclone.org/docs/&#xD;
+https://www.postgresql.org/</Overview>
+  <Category>MediaApp:Video MediaServer:Video</Category>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>  
+  <Icon>https://raw.githubusercontent.com/rivenmedia/riven/main/assets/riven-light.png</Icon>
+  <ExtraParams>--cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>  
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="config dir" Target="/config" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="log dir" Target="/log" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="RD dir" Target="/zurg/RD" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="zurg-data-mnt (add this to Plex!)" Target="/data" Default="" Mode="rw,shared" Description="MUST BE 'Read/Write - Shared'!!!&#13;&#10;You must add the full host path above to your plex container. The container path in Plex can be named how you wish. &#13;&#10;DO NOT ADD THIS AS A LIBRARY! ONLY ADD THE PATH TO PLEX! THAT'S ALL!" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="/riven/backend/data dir" Target="/riven/backend/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="riven-mnt-dir (add this to Plex!)" Target="/mnt" Default="" Mode="rw" Description="This will be the dir that Plex finds requested media. Must be added to your Plex container! Add the same host path inside Plex. Container can be named how you wish. Add a library inside Plex using this container path!!!" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="postgreSQL dir" Target="/postgres_data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="RCLONE_MOUNT_NAME" Target="RCLONE_MOUNT_NAME" Default="" Mode="" Description="rclone mount name&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
+  <Config Name="ORIGIN" Target="ORIGIN" Default="" Mode="" Description="origin URL&#13;&#10;http://[ip address]:[port] &#13;&#10;format" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="PLEX_ADDRESS" Target="PLEX_ADDRESS" Default="" Mode="" Description="(optional) plex url&#13;&#10;http://[ip address]:[port]&#13;&#10;&#13;&#10;(this can also be done in the riven GUI if desired)" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="PLEX_TOKEN" Target="PLEX_TOKEN" Default="" Mode="" Description="your plex.tv token from the xml inside get info on any media" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="RD_API_KEY" Target="RD_API_KEY" Default="" Mode="" Description="https://real-debrid.com/apitoken" Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="access host os fuse" Target="" Default="" Mode="" Description="has to be included otherwise fuser fails to mount." Type="Device" Display="advanced" Required="true" Mask="false">/dev/fuse:/dev/fuse:rwm</Config>
+  <Config Name="ZURG_ENABLED" Target="ZURG_ENABLED" Default="" Mode="" Description="true/false" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="RIVEN_BACKEND_ENABLED" Target="RIVEN_BACKEND_ENABLED" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Riven webGUI port" Target="3000" Default="" Mode="tcp" Description="3000 by default" Type="Port" Display="advanced" Required="true" Mask="false">3000</Config>
+  <Config Name="RIVEN_FRONTEND_ENABLED" Target="RIVEN_FRONTEND_ENABLED" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="HARD_RESET" Target="HARD_RESET" Default="false" Mode="" Description="leave this false unless you wish to reset the database!" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="set the system PID. unraid uses nobody:users (99:100). docker should match the OS if possible." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="set the system PGID. unraid uses nobody:users (99:100). docker should match the OS if possible." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+</Container>
