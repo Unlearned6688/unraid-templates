@@ -6,7 +6,7 @@
 
 ## DMB
 
-Additional information for the DMB template
+#### Additional information for the DMB template
 ---
 
 ### !!!!ATTENTION!!!!
@@ -27,7 +27,28 @@ This means:
 
 
 ## Important first time initial setup notes:
+
 ---
+
+If you're new to using rclone, zurg, riven, DMB, or all of it, I'd suggest this basic, loose, order to set things up quickly/painlessly.
+
+##### "Quick start" steps
+
+1) Read through this [wiki](https://github.com/I-am-PUID-0/DMB/wiki) from I-am-PUID-0 on how to setup and an explanation of settings in DMB.   
+   
+2) Read what I [wrote below](https://github.com/Unlearned6688/unraid-templates/edit/main/README.md#specific-unraid-first-time-configuration-step-2-in-the-above-quick-start) regarding the owner/group permissions using unRAID as the host (which you are doing if you are here). This part is important or the container won't run!   
+
+##### When you have completed steps 1 and 2 your DMB container *should* be working! If not, please recheck your paths, recheck your permissions, owner, group, and if you're still having issues you can ask in the [discord](https://discord.gg/8dqKUBtbp5). If you ask a question regarding troubleshooting ALWAYS INCLUDE THE DMB LOG! Also, it's incredibly helpful to include your filled-in (redact your API keys!) docker run/template so we can see *exactly* where there might be pathing issues.
+
+##### "Advanced" setup (have a fully operational container before delving deeper!)
+
+3) This is a [guide](https://rivenmedia.github.io/wiki/) from the Riven developer. I *highly* suggest giving it at least a short read through. The info is good for beginners or not-beginners alike   
+   
+4) Along with the above guide, I would also suggest reading [this](https://dreulavelle.github.io/rank-torrent-name/users/faq/) on how to handle ranking torrents   
+
+---   
+
+### Specific unRAID First Time Configuration (Step 2 in the above "Quick Start")
 
 At the time of this writing, unraid users must do one additonal step to fix some permissions issues around docker and unraid OS
 
@@ -77,7 +98,7 @@ go to the URL (if it's 0.0.0.0 and you're not on the unraid system, change the i
 
 your frontend, the main interactive webpage, should be showing. congrats! wow! now just set the stuff as per normal. 
 
-see the DMB wiki for more information or check the DMB discord or Riven github/discord for more help
+see the DMB wiki (above) for more information or check the DMB discord or Riven github/discord for more help
 
 (note: do not expect specialized unraid OS debugging or help. you might get help, but don't expect everyone to know the specifics with unraid OS)
 
@@ -98,7 +119,7 @@ see the DMB wiki for more information or check the DMB discord or Riven github/d
 
 6. scroll to the end of the VERY long URL (push 'end' key for shortcut)
 
-7. copy everything AFTER, but not including, "Plex-Token=" (it will be a long string of random characters)
+7. copy everything *AFTER*, but not including, "Plex-Token=" (it will be a long string of random characters)
 
 8. that's your plex token. paste it.
 
@@ -114,4 +135,5 @@ If you ever get 'error 500' it probably means you either put in the wrong IP som
 
 (not unique to unraid) Your logs may become spammed with some sort of "websocket" error. Per the dev of Riven, this can be ignored for now! The cause is unknown, but it doesn't seem to effect performance of Riven (part of DMB, remember)
 
+##### Update Sept 25, 2024 - The frontend text issue was fixed by a DMB update
 Sept 22, 2024: there is a minor bug with the frontend version GUI showing "Unknown." This is purely a visual bug and will be fixed once I get around to fiddling with the template.
