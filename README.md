@@ -36,7 +36,7 @@ If you're new to using rclone, zurg, riven, DMB, or all of it, I'd suggest this 
 
 1) Read through this [wiki](https://github.com/I-am-PUID-0/DMB/wiki) from I-am-PUID-0 on how to setup and an explanation of settings in DMB.   
    
-2) Read what I [wrote below](https://github.com/Unlearned6688/unraid-templates/edit/main/README.md#specific-unraid-first-time-configuration-step-2-in-the-above-quick-start) regarding the owner/group permissions using unRAID as the host (which you are doing if you are here). This part is important or the container won't run!   
+2) Read what I wrote below regarding the owner/group permissions using unRAID as the host (which you are doing if you are here). This part is important or the container won't run!   
 
 ##### When you have completed steps 1 and 2 your DMB container *should* be working! If not, please recheck your paths, recheck your permissions, owner, group, and if you're still having issues you can ask in the [discord](https://discord.gg/8dqKUBtbp5). If you ask a question regarding troubleshooting ALWAYS INCLUDE THE DMB LOG! Also, it's incredibly helpful to include your filled-in (redact your API keys!) docker run/template so we can see *exactly* where there might be pathing issues.
 
