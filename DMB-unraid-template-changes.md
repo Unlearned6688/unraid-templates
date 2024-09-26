@@ -12,6 +12,10 @@
   - previously these were not included because my own paths were not the typical unraid default-style ie mapping config files to appdata, etc. I changed this to bring my own personal DMB container up to date with this xml as I am satisfied with the performance of DMB with Plex and have transitioned into using as my "full time" media solution.
     
   - This makes it even easier (the goal) for newer users or those not seeking to do a lot of "setup" to jump right in using typical default pathways.
+ 
+- "fixed" the icon...
+
+- removed some incorrect instructions regarding plex/rclone mounts
 
 ---
 
