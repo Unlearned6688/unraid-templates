@@ -1,5 +1,13 @@
 ### Since Debrid Media Manager and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.
 
+#### Sept 25, 2024:
+
+- accepted some clarifications to the xml
+
+- the bug regarding frontend version was *fixed* in one of the recent DMB image pushes. it should now work correctly. (previous fix, which I was using locally but never pushed was to add a path eg ```/mnt/user/dmb/riven/frontend/version.txt``` <-> ```/frontend/riven``` . This fixed it, but was clunky, so I didn't see a need to push it to this template. This is just "for the record" for possible future reasons.
+
+- in the spirt of our good Dr. Funke, I'm trying to "clean up" this template and repo. I'm trying to create the easiest setup for unraid users interested in riven, zurg, and this DMB AIO. I will tweak wording in the xml (the template) to better achieve that. The template was originally "just for me" and then I decided to share it for others once I saw an unfilled need amongst unraid users in the discord. Most of the tweaking is/will be related to better descriptions for paths and variabled, better explaination and linking to the correct resources to help during setup or troubleshooting, etc. along that same vein
+
 ---
 
 #### Sept 22, 2024:
