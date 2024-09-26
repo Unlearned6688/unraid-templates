@@ -1,11 +1,14 @@
-<?xml version="1.1"?>
-<Container version="2">
+<?xml version="1.0"?>
+<Container version="3">
   <Name>dmb</Name>
   <Repository>iampuid0/dmb:latest</Repository>
+  <Registry>https://hub.docker.com/r/iampuid0/dmb/</Registry>
   <Privileged>false</Privileged>
-  <Support>https://hub.docker.com/r/iampuid0/dmb/</Support>
-  <Project>https://hub.docker.com/r/iampuid0/dmb/</Project>
+  <Support>https://discord.gg/8dqKUBtbp5</Support>
+  <Project>https://github.com/I-am-PUID-0/DMB</Project>
   <Overview>This is an unRAID Docker template for:&#xD;
+&#xD;
+Debrid Media Bridge&#xD;
 &#xD;
 "An All-In-One image for the unified deployment of Riven, Zurg, and rclone"&#xD;
 https://hub.docker.com/r/iampuid0/dmb/&#xD;
@@ -32,10 +35,11 @@ You could certainly use those if you wish to setup all the invidivdual component
 &#xD;
 links for a ton more information if desired or required:&#xD;
 &#xD;
-
-
+&#xD;
+&#xD;
 DMB AIO wiki: https://github.com/I-am-PUID-0/DMB/wiki&#xD;
-
+Riven Wiki: https://rivenmedia.github.io/wiki/&#xD;
+&#xD;
 https://github.com/rivenmedia/riven&#xD;
 https://github.com/debridmediamanager/zurg-testing&#xD;
 https://rclone.org/docs/&#xD;
@@ -43,33 +47,33 @@ https://www.postgresql.org/</Overview>
   <Category>MediaApp:Video MediaServer:Video</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
   <Icon>https://raw.githubusercontent.com/rivenmedia/riven/main/assets/riven-light.png</Icon>
-  <ExtraParams>--cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
-  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="config dir" Target="/config" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="log dir" Target="/log" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="RD dir" Target="/zurg/RD" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="riven backend directory" Target="/riven/backend/data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="PostgreSQL dir" Target="/postgres_data" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="Zilean Enable" Target="ZILEAN_ENABLED" Default="true|false" Mode="" Description="Enable Zilean&#13;&#10;more info:&#13;&#10;https://github.com/iPromKnight/zilean" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
-  <Config Name="Zilean Path" Target="/zilean/app/data" Default="" Mode="rw" Description="if zilean = true above,&#13;&#10;then you to provide this path" Type="Path" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="Zurg rclone mnt (add this to Plex!)" Target="/data" Default="" Mode="rw,shared" Description="MUST BE 'Read/Write - Shared'!!!&#13;&#10;You must add the full host path above to your plex container. The container path in Plex can be named how you wish. &#13;&#10;DO NOT ADD THIS AS A LIBRARY! ONLY ADD THE PATH TO PLEX! THAT'S ALL!" Type="Path" Display="always" Required="true" Mask="false"></Config>  
-  <Config Name="Riven symlinks directory (add this to Plex!)" Target="/mnt" Default="" Mode="rw" Description="This will be the dir that Plex finds requested media. Must be added to your Plex container! Add the same host path inside Plex. Container can be named how you wish. Add a library inside Plex using this container path!!!" Type="Path" Display="always" Required="true" Mask="false"></Config>  
-  <Config Name="RCLONE_MOUNT_NAME" Target="RCLONE_MOUNT_NAME" Default="" Mode="" Description="rclone mount name&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
+  <ExtraParams>-it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Enter your timezone. List here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="rclone config directory" Target="/config" Default="" Mode="rw" Description="Directory where your rclone config file will be stored." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="log directory" Target="/log" Default="" Mode="rw" Description="Directory where your DMB logs will be found." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Real-debrid directory" Target="/zurg/RD" Default="" Mode="rw" Description="Directory for Real-Debrid config related files. These are used by the Zurg rclone mount of your Real-Debrid webDAV (read support documents for more info)" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Name of the rclone mount" Target="RCLONE_MOUNT_NAME" Default="" Mode="" Description="rclone mount name.&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
+  <Config Name="PostgreSQL directory" Target="/postgres_data" Default="" Mode="rw" Description="Directory for the postgreSQL database files used with DMB." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Riven backend data path" Target="/riven/backend/data" Default="" Mode="rw" Description="Directory for the riven backend." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Enable Zilean" Target="ZILEAN_ENABLED" Default="true|false" Mode="" Description="Enables Zilean.&#13;&#10;Optional but HIGHLY recommended!&#13;&#10;Note: The first run of Zilean takes a while to grab all the files!&#13;&#10;more info:&#13;&#10;https://github.com/iPromKnight/zilean" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Zilean Path" Target="/zilean/app/data" Default="" Mode="rw" Description="if ZILEAN_ENABLE = true above,&#13;&#10;then you need to provide this path.&#13;&#10;Ziilean is highly recommended to grab high quality cached torrent lists!" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Zurg rclone mount -- ADD THIS DIRECTORY TO Plex/Jellyfin/Emby!" Target="/data" Default="" Mode="rw,shared" Description="MUST BE 'Read/Write - Shared'!!!&#13;&#10;You must add the full host path above to your plex container. The container path in Plex can be named how you wish. &#13;&#10;DO NOT ADD THIS AS A LIBRARY! ONLY ADD THE PATH TO PLEX! THAT'S ALL!" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Riven symlink mount directory -- ADD THIS DIRECTORY TO Plex/Jellyfin/Emby!" Target="/mnt" Default="" Mode="rw" Description="Directory for the riven symlinks. This directory is where Plex/Jellyfin/Emby will be looking to see your shows/movies! ADD THIS DIRECTORY TO Plex/Jellyfin/Emby! ADD IT AS A LIBRARY! eg in Plex it would be a library to '/mnt/movies' and '/mnt/shows'" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="ORIGIN" Target="ORIGIN" Default="http://0.0.0.0:3000" Mode="" Description="origin URL&#13;&#10;http://[ip address]:[port] &#13;&#10;format &#13;&#10;No trailing slash!" Type="Variable" Display="always" Required="true" Mask="false"></Config>
-  <Config Name="PLEX_ADDRESS" Target="PLEX_ADDRESS" Default="" Mode="" Description="(optional) plex url&#13;&#10;http://[ip address]:[port]&#13;&#10;&#13;&#10;(this can also be done in the riven GUI if desired)" Type="Variable" Display="always" Required="false" Mask="false"></Config>
-  <Config Name="PLEX_TOKEN" Target="PLEX_TOKEN" Default="" Mode="" Description="your plex.tv token from the xml inside get info on any media" Type="Variable" Display="always" Required="false" Mask="true"></Config>
-  <Config Name="RD_API_KEY" Target="RD_API_KEY" Default="" Mode="" Description="https://real-debrid.com/apitoken" Type="Variable" Display="always" Required="false" Mask="true"></Config>  
-  <Config Name="Riven webGUI port" Target="3000" Default="" Mode="tcp" Description="3000 by default" Type="Port" Display="advanced" Required="true" Mask="false">3000</Config>
-  <Config Name="Access Host OS fuse" Target="" Default="" Mode="" Description="has to be included otherwise fuser fails to mount." Type="Device" Display="advanced" Required="true" Mask="false">/dev/fuse:/dev/fuse:rwm</Config>
-  <Config Name="Update Zurg" Target="ZURG_UPDATE" Default="true|false" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
-  <Config Name="ZURG_ENABLED" Target="ZURG_ENABLED" Default="true|false" Mode="" Description="keep this enabled (true) unless you have a reason" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
-  <Config Name="Update Riven Frontend" Target="RIVEN_FRONTEND_UPDATE" Default="true|false" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>  
-  <Config Name="RIVEN_FRONTEND_ENABLED" Target="RIVEN_FRONTEND_ENABLED" Default="true|false" Mode="" Description="keep this true unless you have a reason" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
-  <Config Name="Update Riven Backend" Target="RIVEN_BACKEND_UPDATE" Default="true|false" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
-  <Config Name="RIVEN_BACKEND_ENABLED" Target="RIVEN_BACKEND_ENABLED" Default="true|false" Mode="" Description="keep this true unless you have a reason" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>    
-  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="set the system PID. unraid uses nobody:users (99:100). docker should match the OS if possible." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
-  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="set the system PGID. unraid uses nobody:users (99:100). docker should match the OS if possible." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
-  <Config Name="FRONTEND LOGS" Target="FRONTEND_LOGS" Default="ON|OFF" Mode="" Description="toggle frontend logs on/off&#13;&#10;default is on" Type="Variable" Display="advanced" Required="false" Mask="false">ON</Config>
-  <Config Name="BACKEND LOGS" Target="BACKEND_LOGS" Default="ON|OFF" Mode="" Description="default is on" Type="Variable" Display="advanced" Required="false" Mask="false">ON</Config>
-  <Config Name="HARD_RESET" Target="HARD_RESET" Default="true|false" Mode="" Description="leave this false unless you wish to reset the database!" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="PLEX_ADDRESS" Target="PLEX_ADDRESS" Default="http://192.168.1.1" Mode="" Description="Change the URL to match your Plex server IP.&#13;&#10;This can be set in the Riven GUI, if desired. Setting it here sort of " Type="Variable" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="PLEX_TOKEN" Target="PLEX_TOKEN" Default="" Mode="" Description="Obtain your Plex token and paste it here. This can be entered in the Riven GUI as well, but this " Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="RD_API_KEY" Target="RD_API_KEY" Default="" Mode="" Description="https://real-debrid.com/apitoken&#13;&#10;&#13;&#10;Enter your real-debrid token from the link. Keep this token/key SAFE! Treat it as you would a password. If others obtain it, they can access your real-debrid account." Type="Variable" Display="always" Required="false" Mask="true"></Config>
+  <Config Name="Enable Zurg" Target="ZURG_ENABLED" Default="true|false" Mode="" Description="Variable to enable zurg. Keep this enabled (true) unless you have a reason to change it." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Update Zurg" Target="ZURG_UPDATE" Default="true|false" Mode="" Description="Set to true and zurg will automatically grab updates when available. Recommended to keep this set to true." Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Enable riven backend updates" Target="RIVEN_BACKEND_UPDATE" Default="true|false" Mode="" Description="Set to true and riven backend will automatically grab updates when available. Recommended to keep this set to true." Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Enable riven frontend updates" Target="RIVEN_FRONTEND_UPDATE" Default="true|false" Mode="" Description="Variable to set DMB to update riven frontend automatically or not. True is default. Recommended to keep this true." Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Enable frontend logs" Target="FRONTEND_LOGS" Default="ON|OFF" Mode="" Description="Toggle frontend logs on/off&#13;&#10;default is on" Type="Variable" Display="advanced" Required="false" Mask="false">ON</Config>
+  <Config Name="Enable backend logs" Target="BACKEND_LOGS" Default="ON|OFF" Mode="" Description="Toggles on or off the backend logs. default is on." Type="Variable" Display="advanced" Required="false" Mask="false">ON</Config>
+  <Config Name="Enable Riven frontend" Target="RIVEN_FRONTEND_ENABLED" Default="true|false" Mode="" Description="Enables the riven frontend. Keep this true unless you have a reason to change it." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Enable Riven backend" Target="RIVEN_BACKEND_ENABLED" Default="true|false" Mode="" Description="Enables the riven backend. Keep this true unless you have a reason to change it." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Riven webGUI port" Target="3000" Default="" Mode="tcp" Description="This is the port the Riven webGUI will show up on.&#13;&#10;eg http://192.168.1.5:3000" Type="Port" Display="advanced" Required="true" Mask="false">3000</Config>
+  <Config Name="Access Host OS fuse" Target="" Default="" Mode="" Description="Path to docker fuse on the unraid host. Has to be included otherwise fuser fails to mount." Type="Device" Display="advanced" Required="true" Mask="false">/dev/fuse:/dev/fuse:rwm</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Set the system PID. unraid uses nobody:users (99:100). docker should match the OS if possible. recommended to not change this unless you have a reason." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Set the system PGID. unraid uses nobody:users (99:100). docker should match the OS if possible. recommended to not change this unless you have a reason." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Database hard reset" Target="HARD_RESET" Default="true|false" Mode="" Description="Leave this false unless you wish to reset the database!" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
 </Container>
