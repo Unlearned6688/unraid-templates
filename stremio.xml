@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>stremio</Name>
+  <Repository>tsaridas/stremio-docker:latest</Repository>  
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/Unlearned6688/unraid-templates/issues</Support>
+  <Project>https://github.com/tsaridas/stremio-docker</Project>
+  <Overview>This is an unRAID OS docker template for:&#xD;
+&#xD;
+stremio-docker -- created by tsaridas&#xD;
+All due credit to the creator, tsaridas. GitHub Repo here: https://github.com/tsaridas/stremio-docker&#xD;
+Additional credit to the creators of Stremio, found here for more info: https://www.stremio.com/&#xD;
+&#xD;
+Description from tsardias' docker repo:&#xD;
+"Stremio is a free application which lets you stream your favorite shows and movies.&#xD;
+The Docker images in this repository bundle stremio-server, ffmpeg and web player for you, ready to use in a small Alpine image."&#xD;
+&#xD;
+unRAID TEMPLATE NOTE:&#xD;
+I setup this template to create and run a docker container that will allow almost zero further configuration required from the user.&#xD;
+&#xD;
+I simply carried over the settings that tsaridas provided for docker-compose and put them into this xml template for unRAID.&#xD;
+&#xD;
+If you are interested in different and/or more advanced/complicated setups, you can add your own ports, variables, and paths to this xml/template and follow tsaridas' instructions for docker-compose, simply interpreting them into the unRAID docker context.&#xD;
+&#xD;
+If you have any issues with this docker template, please don't bring them to tsaridas or stremio. They have nothing to do with this template or any bugs I may have introduced or issues specific to unRAID. If the issue is provably with the underlying stremio-server docker image, then gather that evidence and proceed. Thank you.&#xD;
+&#xD;
+For now, any issues with this template or any other templates I have created can be directed here: https://github.com/Unlearned6688/unraid-templates/issues&#xD;
+If you create an issue, provide as much detail on what is happening, what you expect, your full setup, and other relevant info. Thank you.</Overview>
+  <Category>MediaApp:Video MediaApp:Other MediaServer:Video Network:Web</Category>
+  <WebUI>http://[IP]:[PORT:8080]</WebUI>
+  <Icon>https://www.stremio.com/website/stremio-logo-small.png</Icon>
+  <ExtraParams>--restart unless-stopped</ExtraParams>  
+  <Config Name="Port" Target="8080" Default="8080" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="http server port" Target="11470" Default="11470" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">11470</Config>
+  <Config Name="Stremio Server Container Root Path" Target="/root/.stremio-server" Default="/mnt/user/appdata/stremio" Mode="rw" Description="Map path from host to container" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/stremio</Config>
+  <Config Name="NO CORS" Target="NO_CORS" Default="1" Mode="" Description="Set to disable server's cors. 0=cors enabled. 1= cors diabled. Set to 1 as default here to make this template easy mode " Type="Variable" Display="always" Required="false" Mask="false">1</Config>
+  <Config Name="IPADDRESS" Target="IPADDRESS" Default="192.168.1.100" Mode="" Description="IP container is hosted on" Type="Variable" Display="always" Required="false" Mask="false"></Config>
+</Container>
