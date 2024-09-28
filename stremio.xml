@@ -6,6 +6,7 @@
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
+  <Readme>https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/stremio-readme.md</Readme>
   <Support>https://github.com/Unlearned6688/unraid-templates/issues</Support>
   <Project>https://github.com/tsaridas/stremio-docker</Project>
   <Overview>This is an unRAID OS docker template for:&#xD;
