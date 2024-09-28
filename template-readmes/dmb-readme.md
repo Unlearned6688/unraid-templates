@@ -34,9 +34,9 @@ If you're new to using rclone, zurg, riven, DMB, or all of it, I'd suggest this 
 
 #### "Advanced" setup (have a fully operational container before delving deeper!)
 
-3) This is a [guide](https://rivenmedia.github.io/wiki/) from the Riven developer. I *highly* suggest giving it at least a short read through. The info is good for beginners or not-beginners alike   
-   
-4) Along with the above guide, I would also suggest reading [this](https://dreulavelle.github.io/rank-torrent-name/users/faq/) on how to handle ranking torrents
+3. This is a [guide](https://rivenmedia.github.io/wiki/) from the Riven developer. I *highly* suggest giving it at least a short read through. The info is good for beginners or not-beginners alike.
+
+4. Along with the above guide, I would also suggest reading [this](https://dreulavelle.github.io/rank-torrent-name/users/faq/) on how to handle ranking torrents.
 
 ### Specific unRAID First Time Configuration (Step 2 in the above "Quick Start")
 
@@ -74,7 +74,7 @@ Look for the message confirming riven frontend has started. Plex needs to start 
 
 Having done the above, your frontend, the main interactive webpage, should be showing.
 **Congrats! Wow!**
-Now just set the riven settings as per normal. 
+Now just set the riven settings as per normal.
 
 See the DMB wiki (above) for more information or check the DMB discord or Riven github/discord for more help
 
