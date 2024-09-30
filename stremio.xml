@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.1"?>
 <Container version="2">
   <Name>stremio</Name>
   <Repository>tsaridas/stremio-docker:latest</Repository>  
@@ -20,7 +20,7 @@ Description from tsardias' docker repo:&#xD;
 The Docker images in this repository bundle stremio-server, ffmpeg and web player for you, ready to use in a small Alpine image."&#xD;
 &#xD;
 unRAID TEMPLATE NOTE:&#xD;
-I setup this template to create and run a docker container that will allow almost zero further configuration required from the user.&#xD;
+I setup this template to create and run a docker container that will need almost zero further configuration required from the user.&#xD;
 &#xD;
 I simply carried over the settings that tsaridas provided for docker-compose and put them into this xml template for unRAID.&#xD;
 &#xD;
@@ -29,7 +29,7 @@ If you are interested in different and/or more advanced/complicated setups, you 
 If you have any issues with this docker template, please don't bring them to tsaridas or stremio. They have nothing to do with this template or any bugs I may have introduced or issues specific to unRAID. If the issue is provably with the underlying stremio-server docker image, then gather that evidence and proceed. Thank you.&#xD;
 &#xD;
 For now, any issues with this template or any other templates I have created can be directed here: https://github.com/Unlearned6688/unraid-templates/issues&#xD;
-If you create an issue, provide as much detail on what is happening, what you expect, your full setup, and other relevant info. Thank you.</Overview>
+If you create an issue, provide as much detail on what is happening, what you expect, your full setup, and other relevant info as possible. Thank you.</Overview>
   <Category>MediaApp:Video MediaApp:Other MediaServer:Video Network:Web</Category>
   <WebUI>http://[IP]:[PORT:8080]</WebUI>
   <Icon>https://www.stremio.com/website/stremio-logo-small.png</Icon>
