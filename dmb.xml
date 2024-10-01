@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Container version="3">
+<Container version="2">
   <Name>dmb</Name>
   <Repository>iampuid0/dmb:latest</Repository>
   <Registry>https://hub.docker.com/r/iampuid0/dmb/</Registry>
@@ -14,9 +14,28 @@ Debrid Media Bridge&#xD;
 "An All-In-One image for the unified deployment of Riven, Zurg, and rclone"&#xD;
 https://hub.docker.com/r/iampuid0/dmb/&#xD;
 &#xD;
-!!!!!!!!!! CHECK THE GITHUB BEFORE INSTALLING !!!!!!!!!!!!!!!!!!!!!&#xD;
-https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/dmb-readme.md&#xD;
-!!!!!!! ACTIONS REQUIRED DURING SETUP TO ENSURE IT WORKS !!!!!!!&#xD;
+!!!!!!!!! ADDITIONAL STEPS REQUIRED DURING INITIAL SETUP !!!!!!!!!&#xD;
+&#xD;
+This link has all the information and links you might need: https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/dmb-readme.md&#xD;
+&#xD;
+During the first setup, directories will be created using root user on the host OS (unRAID). &#xD;
+However, the container uses a non-root user called DMB when running normally.&#xD;
+So, you need to change the owner of the DMB directories to the unRAID default of owner: nobody group:users aka 99:100&#xD;
+&#xD;
+Method 1 CLI&#xD;
+1. stop the docker container fully. Wait to see it fully stopped.&#xD;
+2. access the terminal as root user&#xD;
+3. run the command chown -R 99:100 /mnt/user/appdata/DMB&#xD;
+4. run the above command again for any other directories used by DMB eg /mnt/user/DMB (skip if you only have one directory)&#xD;
+5. Restart the container. Check logs. You might need to stop container and run the chown command two times during the first setup only.&#xD;
+&#xD;
+Method 2 unRAID GUI&#xD;
+1. stop the docker container fully. Wait to see it fully stopped.&#xD;
+2. login to unRAID GUI as root user&#xD;
+3. Locate your ./appdata/DMB directory (if you setup shares (most people do) then click shares, go into appdata, you'll see DMB there after the first run)&#xD;
+4. click the + sign on the click side of the ./appdata/DMB directory. change owner. choose nobody (it is called just that: nobody) as the owner. apply the change&#xD;
+5. repeat above steps if you have other directories used by DMB&#xD;
+6.  Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;
 &#xD;
 "What are Riven and Zurg? What is all of this stuff?"&#xD;
 &#xD;
@@ -35,8 +54,6 @@ PostgreSQL database is also used to store settings and relevant information.&#xD
 You could certainly use those if you wish to setup all the invidivdual components. This AIO image just seeks to simplify and streamline the process.&#xD;
 &#xD;
 links for a ton more information if desired or required:&#xD;
-&#xD;
-&#xD;
 &#xD;
 DMB AIO wiki: https://github.com/I-am-PUID-0/DMB/wiki&#xD;
 Riven Wiki: https://rivenmedia.github.io/wiki/&#xD;
