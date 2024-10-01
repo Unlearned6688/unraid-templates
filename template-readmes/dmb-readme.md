@@ -44,15 +44,15 @@ At the time of this writing, unraid users must do one additonal step to fix some
 
 When you first run the container, after setting all the paths, variables, etc. of course, docker engine creates many of the directories using the ROOT user
 
-This is undesirable for a multitude of reasons I won't into. Suffice to say, security is one concern, but a more pressing concern for every end user: the container won't run (properly)!
+This is undesirable for a multitude of reasons I won't go into. Suffice to say, security is one concern, but a more pressing concern for every end user: the container won't run (properly)!
 
 The solution is quick and painless:
 
-stop the container. wait for it to fully stop so that anything which might be mounted is unmounted!
+FIRST stop the container. Wait for it to fully stop so that anything which might be mounted is unmounted!
 
 Command line solution:
 
-```chown -R 99:100 /mnt/user/your/path``` (eg: ```chown -R 99:100 /mnt/user/DMB```)
+```chown -R 99:100 /mnt/user/your/path``` (eg: ```chown -R 99:100 /mnt/user/DMB``` or ```chown -R 99:100 /mnt/user/appdata/DMB```)
 
 GUI solution:
 
@@ -60,7 +60,7 @@ GUI solution:
 
 2. navigate to shares
 
-3. navigate to your share with the DMB directory (ex: ```/mnt/user/DMB```)
+3. navigate to your share with the DMB directory (ex: ```/mnt/user/appdata/DMB```)
 
 4. on the right side, click the + sign to get the drop down menu
 
@@ -101,6 +101,8 @@ See the DMB wiki (above) for more information or check the DMB discord or Riven 
 8. that's your plex token. paste it.
 
 ### Other Cool Notes to Make in Your Brain
+
+The Jellyfin and Emby integration isn't fully available yet in DMB. However, Jellyfin/Emby **will work** if you add the paths to their respective containers the same way you would for Plex. Add the Zurg ./mnt and Riven ./mnt. Add ONLY the Riven ./mnt as a library!
 
 If you ever get 'error 500' it probably means you either put in the wrong IP somewhere, don't have a valid Plex token, or you haven't added your DMB paths (zurg AND riven) to your Plex container!
 
