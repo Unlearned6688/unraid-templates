@@ -33,9 +33,9 @@ Method 2 unRAID GUI&#xD;
 1. stop the docker container fully. Wait to see it fully stopped.&#xD;
 2. login to unRAID GUI as root user&#xD;
 3. Locate your ./appdata/DMB directory (if you setup shares (most people do) then click shares, go into appdata, you'll see DMB there after the first run)&#xD;
-4. click the + sign on the click side of the ./appdata/DMB directory. change owner. choose nobody (it is called just that: nobody) as the owner. apply the change&#xD;
-5. repeat above steps if you have other directories used by DMB&#xD;
-6.  Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;
+4. click the + sign on the right side of the ./appdata/DMB directory. Change owner. Choose nobody in the drop down menu (it is called just that: nobody) as the owner. Apply the change&#xD;
+5. repeat above steps if you have other directories used by DMB eg /mnt/user/DMB&#xD;
+6. Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;
 &#xD;
 "What are Riven and Zurg? What is all of this stuff?"&#xD;
 &#xD;
@@ -70,7 +70,7 @@ https://www.postgresql.org/</Overview>
   <Config Name="rclone config directory" Target="/config" Default="/mnt/user/appdata/DMB/config" Mode="rw" Description="Directory where your rclone config file will be stored." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/config</Config>
   <Config Name="log directory" Target="/log" Default="/mnt/user/appdata/DMB/log" Mode="rw" Description="Directory where your DMB logs will be found." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/log</Config>
   <Config Name="Real-debrid directory" Target="/zurg/RD" Default="/mnt/user/appdata/DMB/Zurg/RD" Mode="rw" Description="Directory for Real-Debrid config related files. These are used by the Zurg rclone mount of your Real-Debrid webDAV (read support documents for more info)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/Zurg/RD</Config>
-  <Config Name="Name of the rclone mount" Target="RCLONE_MOUNT_NAME" Default="" Mode="" Description="rclone mount name.&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
+  <Config Name="Name of the rclone mount" Target="RCLONE_MOUNT_NAME" Default="DMB" Mode="" Description="rclone mount name.&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
   <Config Name="PostgreSQL directory" Target="/postgres_data" Default="/mnt/user/appdata/DMB/PostgreSQL/data" Mode="rw" Description="Directory for the postgreSQL database files used with DMB." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/PostgreSQL/data</Config>
   <Config Name="Riven backend data path" Target="/riven/backend/data" Default="/mnt/user/appdata/DMB/Riven/data" Mode="rw" Description="Directory for the riven backend." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/Riven/data</Config>
   <Config Name="Enable Zilean" Target="ZILEAN_ENABLED" Default="true|false" Mode="" Description="Enables Zilean.&#13;&#10;Optional but HIGHLY recommended!&#13;&#10;Note: The first run of Zilean takes a while to grab all the files!&#13;&#10;more info:&#13;&#10;https://github.com/iPromKnight/zilean" Type="Variable" Display="always" Required="false" Mask="false"></Config>
