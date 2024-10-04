@@ -1,4 +1,20 @@
-**Since Debrid Media Manager and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.**
+**Since Debrid Media Bridge and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.**
+
+**Oct 4, 2024**
+
+- added optional variables to enabled pgAdmin 4. added port 5050:5050 (default set to 5050 as well). this is the port pgAdmin 4 uses and has to be exposed to use it. 
+
+- fixed some typos in the description section at the top
+
+- added DMB as the default mount name for zurg (oops!)
+
+---
+
+**Oct 1, 2024**
+
+- partially rewrote the description at the top of the template to include setup instructions so new users can just use that instead of being forced to read wikis on GitHub
+
+---
 
 **Sept 25, 2024, cont.**
 
