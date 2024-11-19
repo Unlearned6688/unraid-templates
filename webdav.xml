@@ -6,7 +6,7 @@
   <Network>bridge</Network>  
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
-  https://github.com/Unlearned6688/unraid-templates/issues
+  <Support>https://github.com/Unlearned6688/unraid-templates/issues</Support>
   <Project>https://github.com/hacdias/webdav</Project>
   <Overview>"A simple and standalone WebDAV server." -- created by hacdias on github.com&#xD;
 &#xD;
