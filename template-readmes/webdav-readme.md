@@ -1,6 +1,6 @@
 # WebDAV
 
-"A simple and standalone WebDAV server." -- created by [hacdias][(https://github.com/hacdias/webdav)
+"A simple and standalone WebDAV server." -- created by [hacdias](https://github.com/hacdias/webdav)
 
 ## Why?
 
