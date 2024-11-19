@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>webdav</Name>
+  <Repository>hacdias/webdav:latest</Repository>
+  <Registry>https://hub.docker.com/r/hacdias/webdav</Registry>
+  <Network>bridge</Network>  
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/hacdias/webdav</Project>
+  <Overview>"A simple and standalone WebDAV server." -- created by hacdias on github.com&#xD;
+&#xD;
+This is just a very simple, set it up in like 2 minutes WebDAV server that I found and made this (also very simple) .xml to use it in unRAID.&#xD;
+&#xD;
+Disclaimer: Anything beyond this .xml, such as stricter security, etc. will be found on the creator's github. I can't promise anything else will work. I haven't tried it. Also, the creator has nothing to do with my template here. If you find yourself with questions or issues, keep that in mind.&#xD;
+&#xD;
+Setup:&#xD;
+- set the location for the config.yml file (defaults to the /appdata dir where docker configs are stored in unraid typically). add the below (linked) config.yml file to this directory. note: it's a fully filled in example. your real config.yml may omit a lot of the settings!&#xD;
+&#xD;
+https://github.com/hacdias/webdav#configuration&#xD;
+&#xD;
+- set the location for your data. (defaults to a new share called "webdav." I do not recommend putting this share under appdata because this is where all your data, game saves, roms, whatever you're saving, will be saved to. It will take a bunch of storage space if you are actually using this webdav. It doesn't have to be its own share (maybe under /data/webdav for example) it's up you)</Overview>
+  <Category>Backup: Cloud: Productivity: Tools:</Category>
+  <WebUI>http://[IP]:[PORT:6060]</WebUI>
+  <TemplateURL/>
+  <Icon>https://cdn3.iconfinder.com/data/icons/user-interface-and-web-5/97/219-512.png</Icon>  
+  <Config Name="Port" Target="6060" Default="6060" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">6060</Config>
+  <Config Name="WebDAV data path" Target="/data" Default="/mnt/user/appdata/webdav" Mode="rw" Description="Where your WebDAV directories and files will be found" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/webdav</Config>
+  <Config Name="WebDAV config file" Target="/config.yml" Default="/mnt/user/appdata/webdav/config.yml" Mode="ro" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/webdav/config.yml</Config>
+</Container>
