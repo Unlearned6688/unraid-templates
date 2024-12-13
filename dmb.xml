@@ -3,6 +3,7 @@
   <Name>dmb</Name>
   <Repository>iampuid0/dmb:latest</Repository>
   <Registry>https://hub.docker.com/r/iampuid0/dmb/</Registry>
+  <Network>bridge</Network>
   <Privileged>false</Privileged>
   <ReadMe>https://github.com/I-am-PUID-0/DMB/wiki</ReadMe>
   <Support>https://discord.gg/8dqKUBtbp5</Support>
