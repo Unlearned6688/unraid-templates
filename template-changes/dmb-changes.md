@@ -1,5 +1,25 @@
 **Since Debrid Media Bridge and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.**
 
+**Dec 15, 2024**
+
+- Added a more prominent "attention" banner when people download from unRAID app store.
+  - I found out how to make a more "annoying" "Hey! Read this!" screen before people download for the first time. Hopefully people take heed and check some links.
+
+- Added ```RCLONE_DIR``` optional variable to hopefully cut down on confusion regarding changing that directory.
+  - As stated, this is optional. This only matters if users change the default parent directory for zurg/rclone. This tells DMB where to look. /data is the default (inside the container)
+
+- Added ```--shm-size=128MB``` to the extra parameters in the template.
+  - Users were having issues with Zilean crashing due to postgreSQL only having 64MB memory allocated by default. It requires 128MB. This fixes the issue.
+
+---
+
+**Dec 14, 2024**
+
+- Added "bridge" as default network type. Again, to cut down on confusion regarding it's exclusion.
+  - There was no reason for exclusion. I didn't think people would be so confused, but I was wrong, and have added it to the .xml. This was the source of a lot of issues, and I apologize for doing it. Most of all, to myself.
+
+---
+
 **Oct 4, 2024**
 
 - added optional variables to enabled pgAdmin 4. added port 5050:5050 (default set to 5050 as well). this is the port pgAdmin 4 uses and has to be exposed to use it. 
