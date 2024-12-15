@@ -15,11 +15,9 @@ Debrid Media Bridge&#xD;
 "An All-In-One image for the unified deployment of Riven, Zurg, and rclone"&#xD;
 https://hub.docker.com/r/iampuid0/dmb/&#xD;
 &#xD;
-!!!!!!!!! ADDITIONAL STEPS REQUIRED DURING INITIAL SETUP !!!!!!!!!&#xD;
+!!!DO ONE OF THESE TWO ACTIONS BELOW WHILE SETTING IT UP OR ELSE THE CONTAINER WILL NOT RUN!!!&#xD;
 &#xD;
-This link has all the information and links you might need: https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/dmb-readme.md&#xD;
-&#xD;
-During the first setup, directories will be created using root user on the host OS (unRAID). &#xD;
+Why? During the first setup, directories will be created using root user on the host OS (unRAID). &#xD;
 However, the container uses a non-root user called DMB when running normally.&#xD;
 So, you need to change the owner of the DMB directories to the unRAID default of owner: nobody group:users aka 99:100&#xD;
 &#xD;
@@ -27,7 +25,7 @@ Method 1 CLI&#xD;
 1. stop the docker container fully. Wait to see it fully stopped.&#xD;
 2. access the terminal as root user&#xD;
 3. run the command chown -R 99:100 /mnt/user/appdata/DMB&#xD;
-4. run the above command again for any other directories used by DMB eg /mnt/user/DMB (skip if you only have one directory)&#xD;
+4. run the above command again for any other directories used by DMB eg /mnt/user/DMB (skip if you only have one directory-this template has two directories by default)&#xD;
 5. Restart the container. Check logs. You might need to stop container and run the chown command two times during the first setup only.&#xD;
 &#xD;
 Method 2 unRAID GUI&#xD;
@@ -35,9 +33,8 @@ Method 2 unRAID GUI&#xD;
 2. login to unRAID GUI as root user&#xD;
 3. Locate your ./appdata/DMB directory (if you setup shares (most people do) then click shares, go into appdata, you'll see DMB there after the first run)&#xD;
 4. click the + sign on the right side of the ./appdata/DMB directory. Change owner. Choose nobody in the drop down menu (it is called just that: nobody) as the owner. Apply the change&#xD;
-5. repeat above steps if you have other directories used by DMB eg /mnt/user/DMB&#xD;
+5. repeat above steps if you have other directories used by DMB eg /mnt/user/DMB (this template has two directories by default)&#xD;
 6. Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;
-&#xD;
 "What are Riven and Zurg? What is all of this stuff?"&#xD;
 &#xD;
 Riven is a new, still in development, open source, free, media solution that combines a bunch of ideas into one complete, polished package.&#xD;
@@ -65,10 +62,17 @@ https://rclone.org/docs/&#xD;
 https://www.postgresql.org/</Overview>
   <Category>MediaApp:Video MediaServer:Video</Category>
   <WebUI>http://[IP]:[PORT:3000]</WebUI>
-  <Icon>https://github.com/I-am-PUID-0/DMB/assets/36779668/d0cbc785-2e09-41da-b226-924fdfcc1f21</Icon>
-  <ExtraParams>-it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
+  <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/dmb.xml</TemplateURL>
+  <Icon>https://github.com/I-am-PUID-0/DMB/assets/36779668/d0cbc785-2e09-41da-b226-924fdfcc1f21?raw=1</Icon>
+  <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
+  <Requires>!!!!!!!!! ADDITIONAL STEPS REQUIRED DURING INITIAL SETUP !!!!!!!!!&#xD;
+&#xD;
+This link has all the information and links you might need: https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/dmb-readme.md&#xD;
+&#xD;
+Please read and perform the steps outlined in the overview of this docker container template or at the link provided above. After performing those steps, I highly, HIGHLY recommend at least skimming through the documentation provided by i-am-puid-0 (links in the overview). DMB isn't a simple project. It does require some amount of input by users (that's you) to understand what it does and what they want from it. Then it will be your best buddy. So please read the very little stuff! It will save you and anyone answering your questions time and frustration. Please! Thank you!</Requires>
   <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Enter your timezone. List here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="rclone config directory" Target="/config" Default="/mnt/user/appdata/DMB/config" Mode="rw" Description="Directory where your rclone config file will be stored." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/config</Config>
+  <Config Name="rclone parent directory" Target="RCLONE_DIR" Default="/data" Mode="" Description="This sets the parent directory for the rclone mount. Default is /data. You only need to change this IF you changed the default path for zurg in this template! Otherwise leave it as /data or you may delete this variable, if you wish." Type="Variable" Display="advanced" Required="false" Mask="false">/data</Config>
   <Config Name="log directory" Target="/log" Default="/mnt/user/appdata/DMB/log" Mode="rw" Description="Directory where your DMB logs will be found." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/log</Config>
   <Config Name="Real-debrid directory" Target="/zurg/RD" Default="/mnt/user/appdata/DMB/Zurg/RD" Mode="rw" Description="Directory for Real-Debrid config related files. These are used by the Zurg rclone mount of your Real-Debrid webDAV (read support documents for more info)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/DMB/Zurg/RD</Config>
   <Config Name="Name of the rclone mount" Target="RCLONE_MOUNT_NAME" Default="DMB" Mode="" Description="rclone mount name.&#13;&#10;can be renamed if you wish, but why?" Type="Variable" Display="always" Required="false" Mask="false">DMB</Config>
