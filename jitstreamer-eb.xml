@@ -17,7 +17,7 @@ You MUST place your pairing file(s) in your /lockdown directory&#xD;
 You MUST setup the shortcut on your Apple Device.&#xD;
 You MUST create a database and enter your Apple Devices into it.&#xD;
 &#xD;
-I wrote a guide for installing this container on Debian. However, it will be mostly fine for unRAID.&#xD;
+I wrote a guide for installing this container on Debian. Here is a revised version I made for unRAID.&#xD;
 See here: https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/jitstreamer-eb-readme.md&#xD;
 &#xD;
 Questions? Join the Discord. My username is Justice on there. Message me in the self-host section with a specific question and, as always, provide logs and errors along with "what you did so far" if you want help.&#xD;
