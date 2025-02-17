@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>jitstreamer-eb</Name>
-  <Repository>sardine0006/jitstreamer-eb:latest</Repository>
+  <Repository>jkcoxson/jitstreamer-eb:latest</Repository>
   <Registry/>
   <Network>bridge</Network>
   <Shell>sh</Shell>
