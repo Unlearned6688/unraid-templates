@@ -1,5 +1,7 @@
 **Since Debrid Media Bridge and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.**
 
+---
+
 **Mar 8, 2025**
 
 - Made a ton of small changes so the template works with the new FastAPI merged branch in Early March, 2025
