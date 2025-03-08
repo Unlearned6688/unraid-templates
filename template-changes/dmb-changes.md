@@ -8,6 +8,8 @@
 
 - I haven't tested the Tailscale implementation and thus make no promises or statements regarding its working or not. Nor do I take any responsibility for it not working. I just followed their instructions to add the ability to enable Tailscale in a Docker container.
 
+---
+
 **Dec 15, 2024**
 
 - Added a more prominent "attention" banner when people download from unRAID app store.
