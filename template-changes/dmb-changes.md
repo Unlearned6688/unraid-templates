@@ -1,5 +1,13 @@
 **Since Debrid Media Bridge and all the underlying projects are in heavy development, I'll just document my changes to the xml, when necessary, in this file for those curious. Most of the time, I'd recommmend checking the actual project (Riven or whatever) for what actually changed and why it matters or doesn't to you.**
 
+**Mar 8, 2025**
+
+- Made a ton of small changes so the template works with the new FastAPI merged branch in Early March, 2025
+
+- Added Tailscale compatibility per the instructions found [here](https://docs.unraid.net/unraid-os/manual/security/tailscale/#install-tailscale-in-a-docker-container)
+
+- I haven't tested the Tailscale implementation and thus make no promises or statements regarding its working or not. Nor do I take any responsibility for it not working. I just followed their instructions to add the ability to enable Tailscale in a Docker container.
+
 **Dec 15, 2024**
 
 - Added a more prominent "attention" banner when people download from unRAID app store.
