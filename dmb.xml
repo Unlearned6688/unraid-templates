@@ -5,7 +5,7 @@
   <Registry>https://hub.docker.com/r/iampuid0/dmb/</Registry>
   <Network>bridge</Network>
   <Privileged>false</Privileged>
-  <ReadMe>https://github.com/I-am-PUID-0/DMB/wiki</ReadMe>
+  <ReadMe>https://i-am-puid-0.github.io/DMB/</ReadMe>
   <Support>https://discord.gg/8dqKUBtbp5</Support>
   <Project>https://github.com/I-am-PUID-0/DMB</Project>
   <Overview>This is an unRAID Docker template for:&#xD;
@@ -56,7 +56,7 @@ You could certainly use those if you wish to setup all the invidivdual component
 &#xD;
 links for a ton more information if desired or required:&#xD;
 &#xD;
-DMB AIO wiki: https://github.com/I-am-PUID-0/DMB/wiki&#xD;
+DMB AIO wiki: https://i-am-puid-0.github.io/DMB/&#xD;
 Riven Wiki: https://rivenmedia.github.io/wiki/&#xD;
 &#xD;
 https://github.com/rivenmedia/riven&#xD;
