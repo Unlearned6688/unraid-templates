@@ -36,7 +36,7 @@ If you create an issue, provide as much detail on what is happening, what you ex
   <ExtraParams>--restart unless-stopped</ExtraParams>  
   <Config Name="Port" Target="8080" Default="8080" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8080</Config>
   <Config Name="http server port" Target="11470" Default="11470" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">11470</Config>
-  <Config Name="SERVER_URL" Target="SERVER_URL" Default="http://[IP]:11470" Mode="" Description="Make sure that the port in the server_url is the same as { http server port }" Type="Variable" Display="always" Required="false" Mask="false">http://[IP]:11470</Config>
+  <Config Name="SERVER_URL" Target="SERVER_URL" Default="" Mode="" Description="Make sure that the port in the server_url is the same as { http server port } - Make default value: http://[IP]:11470" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Stremio Server Container Root Path" Target="/root/.stremio-server" Default="/mnt/user/appdata/stremio" Mode="rw" Description="Map path from host to container" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/stremio</Config>
   <Config Name="NO CORS" Target="NO_CORS" Default="1" Mode="" Description="Set to disable server's cors. 0=cors enabled. 1= cors diabled. Set to 1 as default here to make this template easy mode " Type="Variable" Display="always" Required="false" Mask="false">1</Config>
   <TailscaleStateDir>/mnt/user/appdata/stremio/.tailscale_state</TailscaleStateDir>
