@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>DUMB</Name>
+  <Repository>iampuid0/dumb:latest</Repository>
+  <Registry>https://github.com/I-am-PUID-0/DUMB</Registry>
+  <Network>bridge</Network>
+  <Privileged>false</Privileged>
+  <ReadMe>https://i-am-puid-0.github.io/DUMB/</ReadMe>
+  <Support>https://discord.gg/8dqKUBtbp5</Support>
+  <Project>https://github.com/I-am-PUID-0/DUMB</Project>
+  <Overview>This is an unRAID Docker template for:&#xD;
+&#xD;
+Debrid Unlimited Media Bridge&#xD;
+https://github.com/I-am-PUID-0/DUMB/&#xD;
+&#xD;
+Debrid Unlimited Media Bridge (DUMB) is an All-In-One (AIO) docker image for the unified deployment of the following projects/tools:&#xD;
+cli_debrid, dmbdb, Decypharr, pgAdmin4, phalanx_db, plex_debrid, Plex Media Server, PostgreSQL, rclone, Riven, Zilean, Zurg&#xD;
+Links to all projects here: https://github.com/I-am-PUID-0/DUMB#-projects-included&#xD;
+&#xD;
+This project and many of the underlying projects are all very much "works in progress."&#xD;
+You need to read documentation at the provided repos in order to make things work.&#xD;
+If you can't figure something out, you can join the discord server linked in the support section of the template and ask for help.&#xD;
+</Overview>
+  <Category>MediaApp:Video MediaServer:Video</Category>
+  <WebUI>http://[IP]:[PORT:3005]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/DUMB.xml</TemplateURL>
+  <Icon>https://camo.githubusercontent.com/94a0460a9abb52deb57780033c2e48c933c697eda4efba13011bc402fca8c193/68747470733a2f2f692d616d2d707569642d302e6769746875622e696f2f44554d422f6173736574732f696d616765732f44554d422e706e67</Icon>
+  <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
+  <Requires>!!!DO ONE OF THESE TWO ACTIONS BELOW WHILE SETTING IT UP OR ELSE THE CONTAINER WILL NOT RUN!!!&#xD;
+&#xD;
+Method 1 CLI&#xD;
+1. stop the docker container fully. Wait to see it fully stopped.&#xD;
+2. access the terminal as root user&#xD;
+3. run the command chown -R 99:100 /mnt/user/appdata/DUMB&#xD;
+4. OPTIONAL run the above command again for any other directories used by DUMB eg /mnt/user/DUMB (skip if you only have one directory)&#xD;
+5. Restart the container. Check logs. You might need to stop container and run the chown command two times during the first setup only.&#xD;
+&#xD;
+Method 2 unRAID GUI&#xD;
+1. stop the docker container fully. Wait to see it fully stopped.&#xD;
+2. login to unRAID GUI as root user&#xD;
+3. Locate your /mnt/user/appdata/DUMB directory (if you setup shares (most people do) then click shares, go into appdata, you'll see DUMB there after the first run)&#xD;
+4. click the + sign on the right side of the ./appdata/DUMB directory. Change owner. Choose nobody in the drop down menu (it is called just that: nobody) as the owner. Apply the change&#xD;
+5. OPTIONAL repeat above steps if you have other directories used by DUMB eg /mnt/user/DUMB&#xD;
+6. Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;</Requires>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Enter your timezone. List here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="DUMB config" Target="/config" Default="/mnt/user/appdata/DUMB/config" Mode="rw" Description="Directory where your DUMB config file will be stored." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="log directory" Target="/log" Default="/mnt/user/appdata/DUMB/log" Mode="rw" Description="Directory where your DUMB logs will be found." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Zurg Real-debrid" Target="/zurg/RD" Default="/mnt/user/appdata/DUMB/Zurg/RD" Mode="rw" Description="This is where Zurg will store the active configuration and data for RealDebrid." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Riven backend data" Target="/riven/backend/data" Default="/mnt/user/appdata/DUMB/Riven/data" Mode="rw" Description="Directory for the riven backend." Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="PostgreSQL" Target="/postgres_data" Default="/mnt/user/appdata/DUMB/PostgreSQL/data" Mode="rw" Description="Directory for the postgreSQL database files used with DUMB." Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="pgAdmin data" Target="/pgadmin/data" Default="/mnt/user/appdata/DUMB/pgAdmin4/data" Mode="rw" Description="Optional. Tool for managing the PostgreSQL database." Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Zilean Data" Target="/zilean/app/data" Default="/mnt/user/appdata/DUMB/Zilean/data" Mode="rw" Description="Optional, but highly recommended to grab high quality cached torrent lists!" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Plex_Debrid Data" Target="/plex_debrid/config" Default="/mnt/user/appdata/DUMB/plex_debrid" Mode="rw" Description="Optional. Searches for and grabs requested torrents. Read: https://github.com/itsToggle/plex_debrid" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="cli_debrid Data" Target="/cli_debrid/data" Default="/mnt/user/appdata/DUMB/cli_debrid" Mode="rw" Description="Optional. Similiar to plex_debrid. Read: https://github.com/godver3/cli_debrid" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Phalanx Database" Target="/phalanx_db/data" Default="/mnt/user/appdata/DUMB/phalanx_db" Mode="rw" Description="Optional. Recommended if using cli_debrid. Read: https://github.com/godver3/phalanx_db_hyperswarm" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Decypharr Data" Target="/decypharr" Default="/mnt/user/appdata/DUMB/decypharr" Mode="rw" Description="Optional. Read: https://github.com/sirrobot01/decypharr" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Plex Data" Target="/plex" Default="/mnt/user/appdata/DUMB/plex" Mode="rw" Description="Directory for Plex data" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Location for all symlinks -- ADD THIS DIRECTORY TO Plex" Target="/mnt/debrid" Default="/mnt/user/appdata/DUMB/mnt/debrid" Mode="rw,shared" Description="Directory for all symlinks. Use this directory in Plex for the libraries!" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Rclone Cache Directory" Target="/cache" Default="/mnt/user/appdata/DUMB/cache" Mode="rw" Description="Required otherwise the docker image fills up and causes issues" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Plex Media Server Port" Target="32400" Default="32400" Mode="tcp" Description="Web UI Port for Plex" Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="pgAdmin 4 Port" Target="5050" Default="5050" Mode="tcp" Description="Optional. Can be removed if not using pgAdmin." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DUMB Frontend Port" Target="3005" Default="3005" Mode="tcp" Description="Frontend port for DUMB" Type="Port" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Riven Frontend Port" Target="3000" Default="3000" Mode="tcp" Description="Optional. Can remove if not using Riven" Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="cli_debird Frontend Port" Target="5000" Default="5000" Mode="tcp" Description="Optional. Can remove if not using cli_debrid." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Decypharr Frontend Port" Target="8282" Default="8282" Mode="tcp" Description="Optional. Can remove if not using Decypharr." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="Access Host OS fuse" Target="/dev/fuse:/dev/fuse:rwm" Default="/dev/fuse:/dev/fuse:rwm" Mode="" Description="Path to docker fuse on the unraid host. Has to be included otherwise fuser fails to mount." Type="Device" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="DUMB Log Level" Target="DUMB_LOG_LEVEL" Default="INFO" Mode="" Description="Set this to DEBUG for extensive info for troubleshooting. Can be set to NOTICE for less info in the log." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Set the system PID. unraid uses nobody:users (99:100)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Set the system PGID. unraid uses nobody:users (99:100)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+  <TailscaleStateDir>/mnt/user/appdata/DUMB/.tailscale_state</TailscaleStateDir>
+</Container>
