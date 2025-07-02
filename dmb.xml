@@ -12,18 +12,15 @@
 &#xD;
 Debrid Media Bridge&#xD;
 &#xD;
-"An All-In-One image for the unified deployment of Riven, Zurg, and rclone"&#xD;
-https://hub.docker.com/r/iampuid0/dmb/&#xD;
-&#xD;
-March 2025 Update: Due to the merger of a major update in DMB, a TON of variables and paths have been changed, added, or removed.&#xD;
-If you used this container previous to the March 6, 2025 update, you MUST either manually adjust your paths/variables OR delete your template and start again.&#xD;
-&#xD;
-!!!DO ONE OF THESE TWO ACTIONS BELOW WHILE SETTING IT UP OR ELSE THE CONTAINER WILL NOT RUN!!!&#xD;
-&#xD;
-Why? During the first setup, directories will be created using root user on the host OS (unRAID). &#xD;
-However, the container uses a non-root user called DMB when running normally.&#xD;
-So, you need to change the owner of the DMB directories to the unRAID default of owner: nobody group:users aka 99:100&#xD;
-&#xD;
+Debrid Media Bridge (DMB) is an All-In-One (AIO) docker image for the unified deployment of the following projects/tools:&#xD;
+cli_debrid, dmbdb, Decypharr, pgAdmin4, phalanx_db, plex_debrid, PostgreSQL, rclone, Riven, Zilean, Zurg&#xD;
+https://github.com/I-am-PUID-0/DMB#-projects-included&#xD;</Overview>
+  <Category>MediaApp:Video MediaServer:Video</Category>
+  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/dmb.xml</TemplateURL>
+  <Icon>https://github.com/I-am-PUID-0/DMB/assets/36779668/d0cbc785-2e09-41da-b226-924fdfcc1f21?raw=1</Icon>
+  <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
+  <Requires>!!!DO ONE OF THESE TWO ACTIONS BELOW WHILE SETTING IT UP OR ELSE THE CONTAINER WILL NOT RUN!!!&#xD;
 Method 1 CLI&#xD;
 1. stop the docker container fully. Wait to see it fully stopped.&#xD;
 2. access the terminal as root user&#xD;
@@ -37,42 +34,7 @@ Method 2 unRAID GUI&#xD;
 3. Locate your ./appdata/DMB directory (if you setup shares (most people do) then click shares, go into appdata, you'll see DMB there after the first run)&#xD;
 4. click the + sign on the right side of the ./appdata/DMB directory. Change owner. Choose nobody in the drop down menu (it is called just that: nobody) as the owner. Apply the change&#xD;
 5. repeat above steps if you have other directories used by DMB eg /mnt/user/DMB (this template has two directories by default)&#xD;
-6. Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.&#xD;
-"What are Riven and Zurg? What is all of this stuff?"&#xD;
-&#xD;
-Riven is a new, still in development, open source, free, media solution that combines a bunch of ideas into one complete, polished package.&#xD;
-&#xD;
-More specifically, in the same vein as plex_debrid before (github repo: itstoggled/plex_debrid - now archived), it allows for end users to input their own (paid) real-debrid API token (real-debrid.com for info) (other "debrids" not supported at the moment) and then access "cached torrents" on the real-debrid servers. Cached torrents allow the user to stream the video file being sought, whether movie or tv show.&#xD;
-&#xD;
-Zurg is a specialized rclone mount and filtering program. Basically, it takes a raw rclone mount of all torrents a user has in their debrid library, and it filters them resulting in a huge variety of variables such as file size, bitrate, resolution, etc. (huge list).&#xD;
-&#xD;
-This project also leverages the power of rclone to mount the debrid webdav directory into your OS, unRAID in this case, inside of a docker container. When you provide this mount path to your Plex server Plex won't distingtush between local media that you might have and this mounted media. It will stream the media directly from the real-debrid (or other servers if added later by devs) servers to your Plex server where it will be played lag-free assuming your network/server/player can handle it.&#xD;
-&#xD;
-PostgreSQL database is also used to store settings and relevant information.&#xD;
-&#xD;
-"So, why this image and not the image from the developers of Riven or Zurg?"&#xD;
-&#xD;
-You could certainly use those if you wish to setup all the invidivdual components. This AIO image just seeks to simplify and streamline the process.&#xD;
-&#xD;
-links for a ton more information if desired or required:&#xD;
-&#xD;
-DMB AIO wiki: https://i-am-puid-0.github.io/DMB/&#xD;
-Riven Wiki: https://rivenmedia.github.io/wiki/&#xD;
-&#xD;
-https://github.com/rivenmedia/riven&#xD;
-https://github.com/debridmediamanager/zurg-testing&#xD;
-https://rclone.org/docs/&#xD;
-https://www.postgresql.org/</Overview>
-  <Category>MediaApp:Video MediaServer:Video</Category>
-  <WebUI>http://[IP]:[PORT:3000]</WebUI>
-  <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/dmb.xml</TemplateURL>
-  <Icon>https://github.com/I-am-PUID-0/DMB/assets/36779668/d0cbc785-2e09-41da-b226-924fdfcc1f21?raw=1</Icon>
-  <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
-  <Requires>!!!!!!!!! ADDITIONAL STEPS REQUIRED DURING INITIAL SETUP !!!!!!!!!&#xD;
-&#xD;
-This link has all the information and links you might need: https://github.com/Unlearned6688/unraid-templates/blob/main/template-readmes/dmb-readme.md&#xD;
-&#xD;
-Please read and perform the steps outlined in the overview of this docker container template or at the link provided above. After performing those steps, I highly, HIGHLY recommend at least skimming through the documentation provided by i-am-puid-0 (links in the overview). DMB isn't a simple project. It does require some amount of input by users (that's you) to understand what it does and what they want from it. Then it will be your best buddy. So please read the very little stuff! It will save you and anyone answering your questions time and frustration. Please! Thank you!</Requires>
+6. Restart the container. Check logs. You might need to stop container and do the steps twice during the first setup only.</Requires>
   <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Enter your timezone. List here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="rclone config directory" Target="/config" Default="/mnt/user/appdata/DMB/config" Mode="rw" Description="Directory where your rclone config file will be stored." Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="log directory" Target="/log" Default="/mnt/user/appdata/DMB/log" Mode="rw" Description="Directory where your DMB logs will be found." Type="Path" Display="always" Required="true" Mask="false"></Config>
@@ -83,11 +45,14 @@ Please read and perform the steps outlined in the overview of this docker contai
   <Config Name="Riven symlink mount directory -- ADD THIS DIRECTORY TO Plex/Jellyfin/Emby!" Target="/mnt" Default="/mnt/user/DMB/Riven/mnt" Mode="rw" Description="Directory for the riven symlinks. This directory is where Plex/Jellyfin/Emby will be looking to see your shows/movies! ADD THIS DIRECTORY TO Plex/Jellyfin/Emby! ADD IT AS A LIBRARY! eg in Plex it would be a library to '/mnt/movies' and '/mnt/shows'" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="ORIGIN" Target="RIVEN_FRONTEND_ENV_ORIGIN" Default="http://0.0.0.0:3000" Mode="" Description="origin URL&#13;&#10;http://[ip address]:[port] &#13;&#10;format &#13;&#10;No trailing slash!" Type="Variable" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Real-Debrid API Key" Target="ZURG_INSTANCES_REALDEBRID_API_KEY" Default="" Mode="" Description="https://real-debrid.com/apitoken&#13;&#10;&#13;&#10;Enter your real-debrid token from the link. Keep this token/key SAFE! Treat it as you would a password. If others obtain it, they can access your real-debrid account." Type="Variable" Display="always" Required="false" Mask="true"></Config>
-  <Config Name="Zilean Data Path" Target="/zilean/app/data" Default="/mnt/user/DMB/zilean/data" Mode="rw" Description="if ZILEAN_ENABLE = true above,&#13;&#10;then you need to provide this path.&#13;&#10;Ziilean is highly recommended to grab high quality cached torrent lists!" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Zilean Data Path" Target="/zilean/app/data" Default="/mnt/user/DMB/zilean/data" Mode="rw" Description="Ziilean is highly recommended to grab high quality cached torrent lists!" Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="Zilean wwwroot path" Target="/zilean/wwwroot" Default="/mnt/user/DMB/zilean/wwwroot/" Mode="rw" Description="Maybe not required. Added because the container wasn't creating it automatically and causing errors." Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="PGAdmin data directory" Target="/pgadmin/data" Default="/mnt/user/appdata/DMB/pgadmin/data" Mode="rw" Description="Data directory for PGAdmin. Optional tool for managing the PostgreSQL database." Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="cli_debrid Data" Target="/cli_debrid/data" Default="/mnt/user/appdata/DMB/cli_debrid" Mode="rw" Description="Optional. Similiar to plex_debrid. Read: https://github.com/godver3/cli_debrid" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Phalanx Database" Target="/phalanx_db/data" Default="/mnt/user/appdata/DMB/phalanx_db" Mode="rw" Description="Optional. Recommended if using cli_debrid. Read: https://github.com/godver3/phalanx_db_hyperswarm" Type="Path" Display="always" Required="false" Mask="false"></Config>
+  <Config Name="Decypharr Data" Target="/decypharr" Default="/mnt/user/appdata/DMB/decypharr" Mode="rw" Description="Optional. Read: https://github.com/sirrobot01/decypharr" Type="Path" Display="always" Required="false" Mask="false"></Config>
   <Config Name="PGAdmin 4 Port" Target="5050" Default="5050" Mode="tcp" Description="Optional. Needed for running PGAdmin in non-host network mode. Port for pgAdmin 4. Can be removed if you aren't using pgAdmin. Host port number can be changed if required. Keep container port 5050." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
-  <Config Name="Fast API Port" Target="3005" Default="3005" Mode="tcp" Description="Only needed if running in non-host network. If running in Host network mode, this can be deleted" Type="Port" Display="advanced" Required="false" Mask="false"></Config>
+  <Config Name="DMB Frontend Port" Target="3005" Default="3005" Mode="tcp" Description="Only needed if running in non-host network. If running in Host network mode, this can be deleted" Type="Port" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="DMB Log Level" Target="DMB_LOG_LEVEL" Default="INFO" Mode="" Description="Set this to DEBUG for extensive info for ex troubleshooting. Can be set to NOTICE for less info in the log." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="Riven webGUI port" Target="3000" Default="" Mode="tcp" Description="This is the port the Riven webGUI will show up on.&#13;&#10;eg http://192.168.1.5:3000" Type="Port" Display="advanced" Required="true" Mask="false"></Config>
   <Config Name="Access Host OS fuse" Target="/dev/fuse:/dev/fuse:rwm" Default="/dev/fuse:/dev/fuse:rwm" Mode="" Description="Path to docker fuse on the unraid host. Has to be included otherwise fuser fails to mount." Type="Device" Display="advanced" Required="true" Mask="false"></Config>
