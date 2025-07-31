@@ -14,7 +14,7 @@
 
 4. Start the container (this will migrate everything to /data). You can see progress in the container logs.
 
-5. Stop the container. Click edit on the DUMB container again. Now delete all the previous paths for all the services.
+5. Stop the container. Click edit on the DUMB container again. Now delete all the previous paths for all the services. It will look like the pic below (You can ignore my two local media directories. If you have ones of your own, just leave them of course.)
 
 <img width="600" height="400" alt="Screenshot 2025-07-31 171022" src="https://github.com/user-attachments/assets/1ced2d98-417f-4813-8f09-efa91a4d719c" />
 
