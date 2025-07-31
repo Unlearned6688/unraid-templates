@@ -2,7 +2,7 @@
 
 2. Use either of these options if you want to backup your DUMB services (cli_debrid, riven, etc.) data BEFORE migration.
 
-   i. In the unRAID webUI: navigate to the appdata share. Check the box next to it. Select copy. In the popup box type in something like "/mnt/user/appdata/DUMB/backup/" (without quotes). Click start. Wait. It takes a bit.
+   i. In the unRAID webUI: navigate to the appdata share. Check the box next to the DUMB directory. Select copy. In the popup box type in something like "/mnt/user/appdata/DUMB/backup/" (without quotes). Click start. Wait. It takes a bit.
 
 <img width="400" height="200" alt="Screenshot 2025-07-31 170715" src="https://github.com/user-attachments/assets/dc2798e3-d61b-4b59-be71-277ef4b1fa67" />
 
