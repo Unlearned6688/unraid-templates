@@ -12,7 +12,7 @@
 
 <img width="400" height="200" alt="Screenshot 2025-07-31 170754" src="https://github.com/user-attachments/assets/8e62dbaa-865b-4c9d-a885-b1661a992b4b" />
 
-4. Update DUMB to v1.5+ if you it hasn't already been done. Start the container (this will migrate everything to /data). You can see progress in the container logs. When it's done it'll start running DUMB like it was running before.
+4. Update DUMB to v1.5+ if it hasn't already been done. Start the container (this will migrate everything to /data). You can see progress in the container logs. When it's done it'll start running DUMB like it was running before.
 
 6. Stop the container. Click edit on the DUMB container again. Now delete all the previous paths for all the services. It will look like the pic below (You can ignore my two local media directories. If you have ones of your own, just leave them of course.)
 
@@ -20,6 +20,6 @@
 
 6. Start the container - see if all is good
 
-7. Once you confirm everything starts and runs as it did before, you can delete the now unused directories inside /mnt/user/appdata/DUMB These are the directories that should be remaining. You can delete the other ones. Be careful not to delete one you need! (Backup can also be deleted if it exists from you making a backup before migration)
+7. Once you confirm everything starts and runs as it did before, you can delete the now unused directories inside /mnt/user/appdata/DUMB These are the directories that should be remaining. You can delete the other ones. Be careful not to delete ones you need! (Backup can also be deleted if it exists from you making a backup before migration)
 
 <img width="200" height="200" alt="Screenshot 2025-07-31 172838" src="https://github.com/user-attachments/assets/7512c4b6-364f-4162-a290-73429828f069" />
