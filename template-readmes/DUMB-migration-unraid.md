@@ -12,9 +12,9 @@
 
 <img width="400" height="200" alt="Screenshot 2025-07-31 170754" src="https://github.com/user-attachments/assets/8e62dbaa-865b-4c9d-a885-b1661a992b4b" />
 
-4. Start the container (this will migrate everything to /data). You can see progress in the container logs.
+4. Update DUMB to v1.5+ if you it hasn't already been done. Start the container (this will migrate everything to /data). You can see progress in the container logs. When it's done it'll start running DUMB like it was running before.
 
-5. Stop the container. Click edit on the DUMB container again. Now delete all the previous paths for all the services. It will look like the pic below (You can ignore my two local media directories. If you have ones of your own, just leave them of course.)
+6. Stop the container. Click edit on the DUMB container again. Now delete all the previous paths for all the services. It will look like the pic below (You can ignore my two local media directories. If you have ones of your own, just leave them of course.)
 
 <img width="600" height="400" alt="Screenshot 2025-07-31 171022" src="https://github.com/user-attachments/assets/1ced2d98-417f-4813-8f09-efa91a4d719c" />
 
