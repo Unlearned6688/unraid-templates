@@ -20,6 +20,6 @@
 
 6. Start the container - see if all is good 🤷‍♂️
 
-7. Once you confirm everything starts and runs as it did before, you can delete the now unused directories inside /mnt/user/appdata/DUMB These are the directories that should be remaining. You can delete the other ones. Be careful not to delete one you need!
+7. Once you confirm everything starts and runs as it did before, you can delete the now unused directories inside /mnt/user/appdata/DUMB These are the directories that should be remaining. You can delete the other ones. Be careful not to delete one you need! (Backup can also be deleted if it exists from you making a backup before migration)
 
 <img width="690" height="389" alt="Screenshot 2025-07-31 172838" src="https://github.com/user-attachments/assets/7512c4b6-364f-4162-a290-73429828f069" />
