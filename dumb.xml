@@ -47,6 +47,7 @@ Method 2 unRAID GUI&#xD;
   <Config Name="log directory" Target="/log" Default="/mnt/user/appdata/DUMB/log" Mode="rw" Description="Directory where your DUMB logs will be found." Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Location for all symlinks -- ADD THIS DIRECTORY TO Plex" Target="/mnt/debrid" Default="/mnt/user/appdata/DUMB/mnt/debrid" Mode="rw,shared" Description="Directory for all symlinks. Use this directory in Plex for the libraries!" Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Rclone Cache Directory" Target="/cache" Default="/mnt/user/appdata/DUMB/cache" Mode="rw" Description="Required otherwise the docker image fills up and causes issues" Type="Path" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Data directory" Target="/data" Default="/mnt/user/appdata/DUMB/data" Mode="rw" Description="Directory for all data related to services." Type="Path" Display="always" Required="true" Mask="false"></Config>
   <Config Name="Plex Media Server Port" Target="32400" Default="32400" Mode="tcp" Description="Web UI Port for Plex" Type="Port" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="pgAdmin 4 Port" Target="5050" Default="5050" Mode="tcp" Description="Optional. Can be removed if not using pgAdmin." Type="Port" Display="advanced" Required="false" Mask="false"></Config>
   <Config Name="DUMB Frontend Port" Target="3005" Default="3005" Mode="tcp" Description="Frontend port for DUMB" Type="Port" Display="advanced" Required="true" Mask="false"></Config>
@@ -59,3 +60,4 @@ Method 2 unRAID GUI&#xD;
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Set the system PGID. unraid uses nobody:users (99:100)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
   <TailscaleStateDir>/mnt/user/appdata/DUMB/.tailscale_state</TailscaleStateDir>
 </Container>
+
