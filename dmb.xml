@@ -16,7 +16,7 @@ Debrid Media Bridge (DMB) is an All-In-One (AIO) docker image for the unified de
 cli_debrid, dmbdb, Decypharr, pgAdmin4, phalanx_db, plex_debrid, PostgreSQL, rclone, Riven, Zilean, Zurg&#xD;
 https://github.com/I-am-PUID-0/DMB#-projects-included&#xD;</Overview>
   <Category>MediaApp:Video MediaServer:Video</Category>
-  <WebUI>http://[IP]:[PORT:3000]</WebUI>
+  <WebUI>http://[IP]:[PORT:3005]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/dmb.xml</TemplateURL>
   <Icon>https://github.com/I-am-PUID-0/DMB/assets/36779668/d0cbc785-2e09-41da-b226-924fdfcc1f21?raw=1</Icon>
   <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
@@ -60,3 +60,4 @@ Method 2 unRAID GUI&#xD;
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Set the system PGID. unraid uses nobody:users (99:100). docker should match the OS if possible. recommended to not change this unless you have a reason." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
   <TailscaleStateDir>/mnt/user/appdata/DMB/.tailscale_state</TailscaleStateDir>
 </Container>
+
