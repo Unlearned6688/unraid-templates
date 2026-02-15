@@ -28,7 +28,7 @@ A list of all the ports associated with various projects are in the DUMB GitHub 
   <Category>MediaApp:Video MediaServer:Video</Category>
   <WebUI>http://[IP]:[PORT:3005]</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/master/DUMB.xml</TemplateURL>
-  <Icon>https://camo.githubusercontent.com/94a0460a9abb52deb57780033c2e48c933c697eda4efba13011bc402fca8c193/68747470733a2f2f692d616d2d707569642d302e6769746875622e696f2f44554d422f6173736574732f696d616765732f44554d422e706e67</Icon>
+  <Icon>https://raw.githubusercontent.com/Unlearned6688/unraid-templates/refs/heads/main/icons/DUMB.PNG</Icon>
   <ExtraParams>--shm-size=128MB -it --cap-add SYS_ADMIN --security-opt apparmor:unconfined</ExtraParams>
   <Requires>You probably no longer need to mess with the permissions. I have setup DUMB twice on unRAID now without a chown command. Everything has worked fine for me.</Requires>
   <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Enter your timezone. List here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones" Type="Variable" Display="always" Required="true" Mask="false"></Config>
@@ -49,3 +49,4 @@ A list of all the ports associated with various projects are in the DUMB GitHub 
   <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Set the system PGID. unraid uses nobody:users (99:100)" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
   <TailscaleStateDir>/mnt/user/appdata/DUMB/.tailscale_state</TailscaleStateDir>
 </Container>
+
